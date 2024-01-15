@@ -11,4 +11,8 @@ class Author extends Model
     public function book() {
         return $this->hasMany(Book::class);
     }
+
+    public function notation() {
+        return $this->belongsTomany(Notation::class, ('users_notations'));
+    }
 }

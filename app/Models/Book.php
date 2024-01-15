@@ -11,13 +11,19 @@ class Book extends Model
     use HasFactory;
     public function author()
     {
-        $this->belongsTo(Author::class);
+        return $this->belongsTo(Author::class);
     }
+
     public function category()
     {
-        $this->BelongsTo(Category::class);
+        return $this->belongsTo(Category::class);
     }
+
     public function tags(){
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class, 'books_has_tags');
+    }
+    
+    public function notations() {
+        return $this->belongsTomany(Notation::class, ('users_notations'));
     }
 }

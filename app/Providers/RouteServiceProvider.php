@@ -48,7 +48,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
 
             Route::pattern('id', '[1-9][0-9]*');
-            Route::slug('slug', '[a-z0-9]([a-z0-9\-]*[a-z0-9])*');
+            Route::pattern('slug', '[a-z0-9]([a-z0-9\-]*[a-z0-9])*');
+            parent::boot();
         });
 
     }
